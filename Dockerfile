@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
+FROM python:3.10.13-bookworm
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 
 # Install dependencies
-RUN pip install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+RUN pip install --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
 
 # Copy the main application
 COPY . .
