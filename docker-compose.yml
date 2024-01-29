@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: postgres:12
-    container_name: postgres_db
+    container_name: auth-service-postgres
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data
@@ -11,6 +11,7 @@ services:
       - .env
 
   fastapi:
+    container_name: auth-service-fastapi
     build:
       context: .
       dockerfile: Dockerfile
